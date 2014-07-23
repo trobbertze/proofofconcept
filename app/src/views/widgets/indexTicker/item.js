@@ -34,7 +34,7 @@ define([
     });
 
     var layout = new SequentialLayout({
-      direction: Utility.Direction.y
+      direction: Utility.Direction.Y
     });
 
     var title = new Surface({

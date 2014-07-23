@@ -24,11 +24,15 @@ define([
   function Home(options) {
     View.apply(this, arguments);
 
-    // var layout = new SequentialLayout({
-    //
-    // })
+    var layout = new SequentialLayout({
+      direction: Utility.Direction.Y
+    });
 
-    //var header = new HeaderView();
+    var header = new HeaderView({
+      title: 'Home'
+    });
+
+    header.pipe(this._eventOutput);
 
     var tickerCollection = new IndexTickerCollection();
 
@@ -66,7 +70,12 @@ define([
       collection: tickerCollection
     });
 
-    this.add(ticker);
+    layout.sequenceFrom([
+      header,
+      ticker
+    ]);
+
+    this.add(layout);
 
   }
   // ---------------------------------------------------------------------------

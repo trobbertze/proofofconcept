@@ -29,6 +29,7 @@
     "famous-polyfills": "git+https://github.com/Famous/polyfills.git#0.1.1",
     "famous": "~0.2.2",
     "backbone": "~1.1.2",
-    "bootstrap": "~3.2.0"
+    "bootstrap": "~3.2.0",
+    "fontawesome": "~4.1.0"
   }
 }

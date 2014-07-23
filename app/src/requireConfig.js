@@ -10,7 +10,8 @@ require.config({
         backbone: '../lib/backbone/backbone',
         bootstrap: '../lib/bootstrap/dist/js/bootstrap',
         jquery: '../lib/jquery/dist/jquery.min',
-        underscore: '../lib/underscore/underscore'
+        underscore: '../lib/underscore/underscore',
+        fontawesome: '../lib/fontawesome/fonts/*'
     },
     packages: [
 
