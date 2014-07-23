@@ -1,0 +1,22 @@
+html, body {
+    margin: 0 auto;
+}
+
+.device {
+    height: 780px;
+    width: 550px;
+    background-image: url(../images/iphone.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.iframe {
+    border: 'none';
+    width: 295px;
+    height: 498px;
+    position: relative;
+    top: 138px;
+    left: 126px;
+
+}

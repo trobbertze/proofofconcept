@@ -1,31 +1,57 @@
-/* globals define */
-define(function(require, exports, module) {
-    'use strict';
-    // import dependencies
-    var Engine = require('famous/core/Engine');
-    var Modifier = require('famous/core/Modifier');
-    var Transform = require('famous/core/Transform');
-    var ImageSurface = require('famous/surfaces/ImageSurface');
+define([
+  'famous/core/Engine',
+  'famous/core/Surface',
+  'views/widgets/IndexTicker',
+  'collections/IndexTicker'
+], function(
+  Engine,
+  Surface,
+  IndexTickerView,
+  IndexTickerCollection) {
+    return {
+      initialize: function() {
 
-    // create the main context
-    var mainContext = Engine.createContext();
+        var mainContext = Engine.createContext();
 
-    // your app here
-    mainContext.setPerspective(1000);
+        mainContext.setPerspective(1000);
 
-    var logo = new ImageSurface({
-        size: [200, 200],
-        content: '/content/images/famous_logo.png',
-        classes: ['backfaceVisibility']
-    });
+        var tickerCollection = new IndexTickerCollection();
 
-    var initialTime = Date.now();
-    var centerSpinModifier = new Modifier({
-        origin: [0.5, 0.5],
-        transform : function() {
-            return Transform.rotateY(.002 * (Date.now() - initialTime));
-        }
-    });
+        tickerCollection.add(
+          {
+            name: 'dow',
+            title: 'DOW',
+            level: 17113.54,
+            changePoints: 61.81,
+            changePerc: 0.0036
+          }
+        );
 
-    mainContext.add(centerSpinModifier).add(logo);
+        tickerCollection.add(
+          {
+            name: 'nasdaq',
+            title: 'NASDAQ',
+            level: 4456.02,
+            changePoints: 31.32,
+            changeperc: 0.0071
+          }
+        );
+
+        tickerCollection.add(
+          {
+            name: 'sp500',
+            title: 'S&P 500',
+            level: 1983.53,
+            changePoints: 9.9,
+            changePerc: 0.005
+          }
+        );
+
+        var ticker = new IndexTickerView({
+          collection: tickerCollection
+        });
+
+        mainContext.add(ticker);
+      }
+  };
 });
