@@ -1,9 +1,11 @@
 define([
   'famous/core/Engine',
-  'views/Home'
+  'views/Home',
+  'control/Controller'
 ], function(
   Engine,
-  Home) {
+  Home,
+  Controller) {
     return {
       initialize: function() {
 
@@ -12,6 +14,8 @@ define([
         mainContext.setPerspective(1000);
 
         var home = new Home();
+
+        Controller.register(home);
 
         mainContext.add(home);
       }
